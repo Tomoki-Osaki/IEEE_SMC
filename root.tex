@@ -48,19 +48,27 @@ This electronic document is a live template.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
-
 This template provides authors with most of the formatting specifications needed for preparing electronic versions of their papers. 
 
-\section{PROCEDURE}
+\section{OBJECTIVE}
+This study examined how the whole movements efficieny would change as the proportion of agents whose movement algorithms are different.
+
+\section{METHOD}
 
 \subsection{Simulation Environment}
-The simulation environment was set as a 500 by 500 pixel virtual space, where the simulation agents could move in two dimensions. (Figure \ref{fig:sim_env}). The size of each agent was defiend as the radius of 5 pixel circle. Therefore, when more than two agents approached each other at the distance of closer than 5 pixel, those agents' collision count was added. In one trial, all agents moved 500 steps.
+The simulation environment was set as a 500 by 500 pixel virtual space, where the simulation agents could move in two dimensions. (Figure \ref{fig:sim_env}). The size of each agent was defiend as the radius of 5 pixel circle. Therefore, when more than two agents approached each other at the distance of closer than 5 pixel, those agents' collision count was added. In one trial, all agents moved 500 steps. All agnets' initial positions and initial velocities were randomized each time the simulation started.
 
 \subsection{Avoidance Algorithms}
 Based on the collision avoidance algorithms, agents were classified into two types.
 
 For one of types, simple avoidance agent, their avoindace vectors were generated to the opposite direction of the other agents which approached within a 50 pixel. The size of avoidance vectors were fixed as either 1, 2, 3, 4, or 5 pixel in one trial. 
-For another type of agent, which we call as the dynamic avoidance agent, their avoidance vector were generated based on the braking index. When an agent approch to another agent within 50 pixel, the braking rate was calculated based on their relative positions and speeds, and their avoidance vectors were determined from 1 to 3 pixel. This way of avoidance enabled agents to avoid other agents considering how much potential danger they are facing; in safer situations, agents avoid slightly, on the contrary, in more dangerous situation, agents avoid widely not to collide each other. 
+For another type of agent, which we call as the dynamic avoidance agent, their avoidance vector were generated based on the braking index. When an agent approch to another agent within 50 pixel, the braking rate was calculated based on their relative positions and velocities, and their avoidance vectors were determined from 1 to 3 pixel. This way of avoidance enabled agents to avoid other agents considering how much potential danger they are facing; in safer situations, agents avoid slightly, on the contrary, in more dangerous situation, agents avoid widely not to collide each other. 
+
+\subsection{Metrics of movement efficiency}
+The movement efficiency was measured from two perspectives: completion times and number of collisions. Completion times was calculated as the mean steps for each agent took to reach their goals. Number of collisions is the mean of how many times each agent collided with other agents. These two metrics were expected to be inverse-proportional to each other.
+
+\subsection{Change of the Proportions of Dynamic Agents}
+To verify how the change of proportions of dynamic avoidance agents affects the whole movement efficiency, 
 
 \begin{figure}[thpb]
    \centering
@@ -69,9 +77,9 @@ For another type of agent, which we call as the dynamic avoidance agent, their a
    \label{fig:sim_env}
 \end{figure}
 
-\section{MATH}
+\section{RESULTS}
+\subsection{Change of Movement Efficiency}
 
-Before you begin to format your paper, first write and save the content as a separate text file. 
 
 \subsection{Abbreviations and Acronyms} Define abbreviations and acronyms the first time they are used in the text, even after they have been defined in the abstract. 
 
@@ -103,13 +111,9 @@ Note that the equation is centered using a center tab stop.
 \end{itemize}
 
 
-\section{USING THE TEMPLATE}
+\section{DISCUSSION}
 
 Use this sample document as your LaTeX source file to create your document. 
-
-\subsection{Headings, etc}
-
-Text heads organize the topics on a relational, hierarchical basis. 
 
 \subsection{Figures and Tables}
 
