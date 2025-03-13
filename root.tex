@@ -45,53 +45,72 @@ Preparation of Papers for IEEE Sponsored Conferences \& Symposia
 This electronic document is a live template. 
 
 \end{abstract}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{INTRODUCTION}
 This template provides authors with most of the formatting specifications needed for preparing electronic versions of their papers. 
 
 \section{OBJECTIVE}
-This study examined how the whole movements efficieny would change as the proportion of agents whose movement algorithms are different.
+This study examined how the whole movements efficieny would change as the proportion of agents whose movement algorithms are different. 
 
 \section{METHOD}
+To achive the objective of the study, we set the computer simulation environment and perform simulations and measured the efficineny of the movements.  
 
 \subsection{Simulation Environment}
-The simulation environment was set as a 500 by 500 pixel virtual space, where the simulation agents could move in two dimensions. (Figure \ref{fig:sim_env}). The size of each agent was defiend as the radius of 5 pixel circle. Therefore, when more than two agents approached each other at the distance of closer than 5 pixel, those agents' collision count was added. In one trial, all agents moved 500 steps. All agnets' initial positions and initial velocities were randomized each time the simulation started.
+The space of the simulation environment was set as a 500 by 500 pixel virtual space, where the simulation agents could move in two dimensions. (Figure \ref{fig:sim_env}). The size of each agent was defiend as the radius of 5 pixel circle. In one trial, all agents moved 500 steps. All agnets' initial positions and initial velocities were randomized each time the simulation started.
 
 \subsection{Avoidance Algorithms}
 Based on the collision avoidance algorithms, agents were classified into two types.
 
-For one of types, simple avoidance agent, their avoindace vectors were generated to the opposite direction of the other agents which approached within a 50 pixel. The size of avoidance vectors were fixed as either 1, 2, 3, 4, or 5 pixel in one trial. 
+For one of types, simple avoidancke agent, their avoindace vectors were generated to the opposite direction of the other agents which approached within a 50 pixel. The size of avoidance vectors were fixed as either 1, 2, 3, 4, or 5 pixel in one trial. 
 For another type of agent, which we call as the dynamic avoidance agent, their avoidance vector were generated based on the braking index. When an agent approch to another agent within 50 pixel, the braking rate was calculated based on their relative positions and velocities, and their avoidance vectors were determined from 1 to 3 pixel. This way of avoidance enabled agents to avoid other agents considering how much potential danger they are facing; in safer situations, agents avoid slightly, on the contrary, in more dangerous situation, agents avoid widely not to collide each other. 
 
 \subsection{Metrics of movement efficiency}
-The movement efficiency was measured from two perspectives: completion times and number of collisions. Completion times was calculated as the mean steps for each agent took to reach their goals. Number of collisions is the mean of how many times each agent collided with other agents. These two metrics were expected to be inverse-proportional to each other.
+The movement efficiency was measured from two perspectives: completion time and number of collisions. Completion times was calculated as the mean steps for each agent took to reach their goals. Number of collisions is the mean of how many times each agent collided with other agents. When more than two agents approached each other at the distance of closer than 5 pixel, those agents' collision count was added. These two metrics were expected to be inverse-proportional to each other because we assume that when agents avoid others more widely, their completion time should be longer and vice versa. 
 
 \subsection{Change of the Proportions of Dynamic Agents}
-To verify how the change of proportions of dynamic avoidance agents affects the whole movement efficiency, we performed simulations varying the proportions of dynamic avoidance agnets in the whole simulation environment. The variations of proportions were a range of 0 to 1. Therefore, when the proportion was 0, all agents in the environment move based on the simple avoidance algorithm, and when the proportion was 1, all agents in the environment move based on the dynamic aovidance algorithm. 
+To verify how the change of proportions of dynamic avoidance agents affects the whole movement efficiency, we performed simulations varying the proportions of dynamic avoidance agnets in the whole simulation environment. The variations of proportions were a range of 0 to 1. Therefore, when the proportion was 0, all agents in the environment move based on the simple avoidance algorithm, and when the proportion was 1, all agents in the environment moved based on the dynamic aovidance algorithm. We performed 20 trials of the simulation per proportion and all trials' completion time and number of collisions were averaged.
 
 \begin{figure}[thpb]
    \centering
-   \framebox{\parbox{3in}{\includegraphics[scale=0.3]{fig1.png}}}
+   \framebox{\parbox{3in}{\includegraphics[scale=0.4]{figs/overview_simulation.png}}}
    \caption{Overview of the simulation environment}
    \label{fig:sim_env}
 \end{figure}
 
-\section{RESULTS}
+\section{RESULTS} 
+Figure \ref{fig:result_time} shows the transition of the mean of all agents' completion time. In case of that simple avoid vec is smaller than 2 px, completion time increase as the proprotions of the dynamic agent increases. For other cases, where the simple avoid vec is more than 3 px, the completion time decreases as the dynamic agent increases.
+
+\begin{figure}[thpb]
+   \centering
+   \framebox{\parbox{3in}{\includegraphics[scale=0.34]{figs/completion_time.png}}}
+   \caption{Transitions of completion time as the proportion of dynamic avoidance agent increase.}
+   \label{fig:result_time}
+\end{figure}
+
+Figure \ref{fig:result_collisions} shows the transition of the mean of all agents' number of collisions. On the contrary to the completion time, when the simple avoidance vectors are smaller than 2 px, the number of collision decreases as the proportion of the dynamic avoidance agents increases; conversely, when the vectors are larger than 3 px, the number of collisions increased. 
+
+\begin{figure}[thpb]
+   \centering
+   \framebox{\parbox{3in}{\includegraphics[scale=0.34]{figs/number_of_collisions.png}}}
+   \caption{Transitions of number of collisiosn as the proportion of dynamic avoidance agent increase.}
+   \label{fig:result_collisions}
+\end{figure}
+
 \subsection{Transition of Movement Efficiency}
-
-
-\subsection{Abbreviations and Acronyms} 
-Define abbreviations and acronyms the first time they are used in the text, even after they have been defined in the abstract. 
 
 \subsection{Units}
 
 \begin{itemize}
-
 \item Use either SI (MKS) or CGS as primary units. 
-
 \end{itemize}
 
+\section{DISCUSSION}
+As the resutls showed, the trade-off between the completion time and the number of collisions was observed when increasing the proportion of the dynamic avoid agents, except when the simple avoid vector is 2 px. For the simualtion environment where the simple avoidance vector is small, (i.e., 1 px) the increasing of the dynamic agents increased the completion time and decreased the number of collisions. While dynamic avoidance agents decreased the completion time and increased the number of collisions. 
+Because we consider the dynamic avoidance agnets as the cooperative movements in the environment, it is possible to say that these results imply that cooperative movements do not always beneficial to the movement efficiency, but there is the situation where the cooperative movements is beneficial to both the completion time and the number of collisions.
+
+
+\section{TABLE}
 
 \subsection{Equations}
 
@@ -102,17 +121,6 @@ $$z
 $$
 
 Note that the equation is centered using a center tab stop. 
-
-\subsection{Some Common Mistakes}
-\begin{itemize}
-
-
-\item The word data is plural, not singular.
-
-\end{itemize}
-
-
-\section{DISCUSSION}
 
 Use this sample document as your LaTeX source file to create your document. 
 
@@ -135,17 +143,6 @@ Three & Four\\
 \end{table}
 
 
-   \begin{figure}[thpb]
-      \centering
-      \framebox{\parbox{3in}{We suggest that you use a text box to insert a graphic because, in an document, this method is somewhat more stable than directly inserting a picture.}}
-
-      %\includegraphics[scale=0.3]{fig1.png}
-      \caption{Inductance of oscillation winding on amorphous
-       magnetic core versus DC bias magnetic field}
-      \label{figurelabel}
-   \end{figure}
-   
-
 Figure Labels: Use 8 point Times New Roman for Figure labels. 
 
 \section{CONCLUSIONS}
@@ -160,16 +157,14 @@ Appendixes should appear before the acknowledgment.
 
 \section*{ACKNOWLEDGMENT}
 
-The preferred spelling of the word on the first page.
+The preferred spelling of the word on the first page. We cited \cite{c2}.
 
 
 \begin{thebibliography}{99}
 
 \bibitem{c1} G. O. Young, Synthetic structure of industrial plastics (Book style with paper title and editor), in Plastics, 2nd ed. vol. 3, J. Peters, Ed.  New York: McGraw-Hill, 1964, pp. 1564.
+\bibitem{c2} Matsubayashi, S., Miwa, K., Terai, H., and Ninomiya, Y. (2024). Index of braking behaviour in two dimensions within risk perception. Transportation research part F: traffic psychology and behaviour, 102, 164-176.
 
 \end{thebibliography}
-
-
-
 
 \end{document}
